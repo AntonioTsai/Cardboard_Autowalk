@@ -99,8 +99,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // always move along the camera forward as it is the direction that it being aimed at
             //Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 			Vector3 desiredMove = Camera.main.transform.forward.normalized;
-			speed = 2f;
-
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
@@ -258,5 +256,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+		public float M_WalkSpeed
+		{
+			get { return this.m_WalkSpeed; }
+			set { this.m_WalkSpeed = value; }
+		}
     }
 }
