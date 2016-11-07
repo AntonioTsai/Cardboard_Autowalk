@@ -15,16 +15,13 @@ public class Autowalk : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (neuroSky.poorSignal != 0 && neuroSky.atten > 50) {
+		if (neuroSky.poorSignal == 0 && neuroSky.atten > 50 ) {
 			// Speed Up
-			if(controller.M_WalkSpeed <= 20) {
-				controller.M_WalkSpeed++;	
-			}
-		} else if(neuroSky.poorSignal != 0 && neuroSky.atten <= 50){
+			controller.M_WalkSpeed = 2;
+		} else {
+		//else if(neuroSky.poorSignal == 0 && neuroSky.atten <= 50){
 			// Slow Down
-			if (controller.M_WalkSpeed >= 0) {
-				controller.M_WalkSpeed--;
-			}
+			controller.M_WalkSpeed = 0;
 		}
 	}
 
